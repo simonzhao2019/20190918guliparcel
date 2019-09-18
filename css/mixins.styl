@@ -1,0 +1,24 @@
+//1px边框
+border-1px($color,$offset=top)
+  position: relative
+  &::before
+    position: absolute
+    height 1px
+    width 100%
+    background $color
+    content ""
+    display block
+    if $offset== bottom
+      bottom 0
+    else
+      top 0
+    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx)
+      transform scaleY(.5)
+    @media (-webkit-min-device-pixel-ratio: 3),(min-resolution: 3dppx)
+      transform scaleY(.3)
+image-bg($url,$extension)
+  background-image url($url+$extension)
+  @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx)
+    background-image url($url+'@2x'+$extension)
+  @media (-webkit-min-device-pixel-ratio: 3),(min-resolution: 3dppx)
+    background-image url($url+'@3x'+$extension)
